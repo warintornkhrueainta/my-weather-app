@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <script defer src="script.js"></script>
+
 <body>
     <div class="app-container">
         <h1>Weather App</h1>
@@ -13,10 +14,12 @@
             <input type="text" id="city-input" placeholder="ค้นหาชื่อเมือง..." required>
             <button type="submit">ค้นหา</button>
         </form>
-        <div id="weather-info-container" class="weather-info">
-            <!-- ข้อมูลสภาพอากาศจะแสดงที่นี่ -->
-        </div>
+        <h2>สภาพอากาศปัจจุบัน</h2>
+        <div id="weather-info-container" class="weather-info"></div>
+        <h2>พยากรณ์อากาศล่วงหน้า 5 วัน</h2>
+        <div id="forecast-container" class="forecast-info"></div>
     </div>
-    <script src="script.js"></script>
+    <div id="weather-animation" class="weather-animation"></div>
 </body>
-</html>`
+
+</html>

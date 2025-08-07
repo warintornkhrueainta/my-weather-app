@@ -1,6 +1,6 @@
 body {
-    background: #FFCCFF;
-    color:#CC66CC;
+    background:#e0f7fa;
+    color:#d81b60;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
     justify-content: center;
@@ -8,28 +8,169 @@ body {
     min-height: 100vh;
     margin: 0;
 }
+
 .app-container {
-    background:#FFFFCC;
+    background:#f8bbd0;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 400px;
     text-align: center;
+    margin-bottom: 20px;
 }
-h1 { color:#9999FF; }
-#search-form { display: flex; gap: 0.5rem; margin: 1.5rem 0; }
+
+h1 {
+    color:#ad1457;
+}
+
+#search-form {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
 #city-input {
-    flex-grow: 1; padding: 0.75rem; border: 1px solid#99CCFF;
-    border-radius: 0.5rem; background:#CCFFFF; color:#9900FF;
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #7e57c2;
+    border-radius: 0.5rem;
+    background:#d1c4e9;
+    color: #ce93d8;
     font-size: 1rem;
 }
+
 #search-form button {
-    padding: 0.75rem 1rem; background-color:#66CCFF; color: #051923;
-    border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: bold;
-    cursor: pointer; transition: background-color 0.2s;
+    padding: 0.75rem 1rem;
+    background-color:#fce4ec;
+    color: #051923;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
-#search-form button:hover { background-color: #0582CA; }
-.weather-info { margin-top: 1.5rem; min-height: 150px; }
-.weather-info .temp { font-size: 3rem; font-weight: bold; margin: 0.5rem 0; }
-.error { color: #ff4d4d; font-weight: bold; }
+
+#search-form button:hover {
+    background-color: #ce93d8;
+}
+
+.weather-info {
+    margin-top: 1.5rem;
+    min-height: 150px;
+}
+
+.weather-info .temp {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.error {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+
+
+/* Weather Animation Styles */
+.weather-animation {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ☀️ Sun */
+.sun {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at center, #FFD700, #FFA500);
+    border-radius: 50%;
+    animation: rotate 15s linear infinite;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 🌧️ Rain */
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: #a8dadc;
+    top: -20px;
+    animation: fall 1s linear infinite;
+    opacity: 0.5;
+}
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* ❄️ Snow */
+.snowflake {
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    animation: snow 6s linear infinite;
+}
+@keyframes snow {
+    0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* ☁️ Clouds */
+.cloud-shape {
+    position: absolute;
+    top: 15%;
+    left: -200px;
+    width: 200px;
+    height: 60px;
+    background: #fff;
+    border-radius: 100px;
+    opacity: 0.3;
+    animation: moveCloud 60s linear infinite;
+}
+@keyframes moveCloud {
+    0% { left: -200px; }
+    100% { left: 100vw; }
+}
+
+
+/*Forecast Styles */
+.forecast-info {
+    margin-top: 1.5rem;
+    overflow-x: auto;  
+    padding-bottom: 10px;
+}
+
+.forecast-grid {
+    display: flex;        
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.forecast-day {
+    min-width: 100px;
+    background:#fde0dc;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    flex-shrink: 0;
+    color:#f48fb1;
+}
+.forecast-day img {
+    width: 50px;
+}
+
+
